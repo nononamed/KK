@@ -14,23 +14,20 @@ var map = new naver.maps.Map('map', {
     zoom: 15
     });
 
+var content = <div class="img"><img src="극동.PNG" width="73" height="70"></div>
+
 var marker = new naver.maps.Marker({
 	position: new naver.maps.LatLng(37.12668, 127.64366),
 	map: map
-	}
-	clickable={true}
-        onClick={() => setIsOpen(true)});
+	});
 
-{isOpen && (
-	<div style={{ minWidth: "150px" }}>
-        <img
-              alt="close"
-              width="14"
-              height="13"
-              src="극동.PNG"
-	 onClick={() => setIsOpen(false)}
-            />
-	
+naver.maps.event.addListener(marker, 'click', function() {
+    overlay.setMap(map);
+});
+
+function closeOverlay() {
+    overlay.setMap(null);     
+}
 
 </script>
 </body>
