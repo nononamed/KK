@@ -14,12 +14,30 @@ var map = new naver.maps.Map('map', {
     zoom: 15
     });
 
-var content = <div class="img"><img src="극동.PNG" width="73" height="70"></div>
-
 var marker = new naver.maps.Marker({
-	position: new naver.maps.LatLng(37.12668, 127.64366),
-	map: map
-	});
+position: new naver.maps.LatLng(37.12668, 127.64366),
+map: map
+});
+
+var content = <div class="wrap">
+                <div class="info">
+                    <div class="title">
+                        극동대
+                        <div class="close" onclick="closeOverlay()" title="닫기"></div>
+                    </div>
+                    <div class="body">
+                        <div class="img">
+                            <img src="극동.png" width="80" height="80">
+                       </div>
+                    </div>
+                </div>
+            </div>';
+
+var overlay = new naver.maps.CustomOverlay({
+    content: content,
+    map: map,
+    position: marker.getPosition()       
+});
 
 naver.maps.event.addListener(marker, 'click', function() {
     overlay.setMap(map);
