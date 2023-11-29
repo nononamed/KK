@@ -17,7 +17,20 @@ var map = new naver.maps.Map('map', {
 var marker = new naver.maps.Marker({
 	position: new naver.maps.LatLng(37.12668, 127.64366),
 	map: map
-	});
+	}
+	clickable={true}
+        onClick={() => setIsOpen(true)});
+
+{isOpen && (
+	<div style={{ minWidth: "150px" }}>
+        <img
+              alt="close"
+              width="14"
+              height="13"
+              src="극동.PNG"
+	 onClick={() => setIsOpen(false)}
+            />
+	
 
 </script>
 </body>
